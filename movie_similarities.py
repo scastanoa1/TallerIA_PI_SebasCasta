@@ -8,7 +8,7 @@ import numpy as np
 _ = load_dotenv('api_keys.env')
 client = OpenAI(
     # This is the default and can be omitted
-    api_key=os.environ.get('openai_api_key'),
+    api_key=os.environ.get('opeanai_api_key'),
 )
 
 with open('movie_descriptions.json', 'r') as file:
@@ -69,5 +69,4 @@ for i in range(len(movies)):
 sim = np.array(sim)
 idx = np.argmax(sim)
 print(movies[idx]['title'])
-
 

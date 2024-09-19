@@ -8,7 +8,7 @@ import numpy as np
 _ = load_dotenv('api_keys.env')
 client = OpenAI(
     # This is the default and can be omitted
-    api_key=os.environ.get('openai_api_key'),
+    api_key=os.environ.get('opeanai_api_key'),
 )
 
 with open('movie_descriptions_embeddings.json', 'r') as file:
@@ -29,7 +29,7 @@ def cosine_similarity(a, b):
 #los embeddings de cada una de las películas de la base de datos. La película con la similitud más alta al prompt sería la película
 #recomendada.
 
-req = "película de un pianista"
+req = "película de una guerra"
 emb = get_embedding(req)
 
 sim = []

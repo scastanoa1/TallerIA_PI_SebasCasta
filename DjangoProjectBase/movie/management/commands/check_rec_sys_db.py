@@ -28,7 +28,7 @@ class Command(BaseCommand):
         
         items = Movie.objects.all()
 
-        req = "película de la segunda guerra mundial"
+        req = "pelicula de anillos"
         emb_req = get_embedding(req, client)
 
         sim = []

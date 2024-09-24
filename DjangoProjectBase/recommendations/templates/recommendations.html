@@ -1,16 +1,17 @@
 {% extends 'base.html' %} 
 {% block content %}
-
-<div class="container"> 
-    <form action=""> <!-- especifica que al hacer clic en enviar, enviamos el formulario a la misma página-->
-        <div class="mb-3"> <!--agrega espacio inferior de 3 unidades-->
-            <label for="searchMovie" class="form-label"> <!--asocia un texto descriptivo con un campo de entrada en un formulario-->
-                Search for Movie:
-            </label>
-            <input type="text" class="form-control" name="searchMovie"/>
-        </div>
-        <button type="submit" class="btn btn-primary">Search</button>
-    </form>   
-
-
+<html>
+<head>
+    <title>Recomendar Película</title>
+</head>
+<body>
+    <h1>Recomendación de Película</h1>
+    <form method="GET" action="{% url 'recommendation' %}">
+        <label for="req_text">Ingresa una descripción o palabra clave:</label>
+        <input type="text" id="req_text" name="req_text" required>
+        <button type="submit">Obtener Recomendación</button>
+    </form>
+    <p>Searching for: {{req_text}}</p> 
+</body>
+</html>
 {% endblock content %}

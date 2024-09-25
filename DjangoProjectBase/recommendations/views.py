@@ -21,7 +21,10 @@ def recommendation(request):
         if not api_key:
             raise ValueError("La clave de OpenAI no se encontró en las variables de entorno")
 
-        client = OpenAI(api_key=api_key)  # Usa la clave API obtenida
+        client = OpenAI(
+        # This is the default and can be omitted
+            api_key=os.environ.get('opeanai_api_key'),
+        )
 
         # Obtener todas las películas de la base de datos
         items = Movie.objects.all()
@@ -40,7 +43,7 @@ def recommendation(request):
         idx = int(idx)
         recommended_movie = items[idx]
 
-        return render(request, 'recommendations.html', {'movie': recommended_movie})
+        return render(request, 'recommendations.html', {'movie': recommended_movie, 'search_term': req})
 
     else:
         return render(request, 'recommendations.html')
